@@ -1,0 +1,7 @@
+{
+  "name": "Nebula AI",
+  "description": "A premium, mobile-first AI assistant PWA featuring a modern dark UI, gesture navigation, and Gemini integration.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

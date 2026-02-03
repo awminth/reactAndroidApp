@@ -1,0 +1,726 @@
+﻿[dotenv@17.2.3] injecting env (0) from .env -- tip: ΓÜÖ∩╕Å  load multiple .env files with { path: ['.env.local', '.env'] }
+Fetching database structure...
+Successfully connected to the database.
+Found 61 tables.
+
+# Database Schema: sms-react
+
+### Table: tblstudentattendance
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| LoginID | int(11) | YES |  |  |
+| EARStudentID | int(11) | YES |  |  |
+| EARYearID | int(11) | YES |  |  |
+| GradeID | int(11) | YES |  |  |
+| AttendanceDate | date | YES |  |  |
+| Date | date | YES |  |  |
+| Status | int(11) | YES |  |  |
+| StatusRmk | varchar(100) | YES |  |  |
+
+
+### Table: tbltime
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(50) | YES |  |  |
+| GradeID | int(11) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+
+
+### Table: tblsavequestion
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| LearningTitleID | int(11) | YES |  |  |
+| GradeID | int(11) | YES |  |  |
+| TeacherID | int(11) | YES |  |  |
+| Date | date | YES |  |  |
+| Count | int(11) | YES |  |  |
+| Status | int(11) | YES |  |  |
+
+
+### Table: tblbonus
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(100) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+
+
+### Table: tblstudentmonthly
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| EARStudentID | int(11) | YES |  |  |
+| R1 | varchar(45) | YES |  |  |
+| R2 | varchar(45) | YES |  |  |
+| R3 | varchar(45) | YES |  |  |
+| R4 | varchar(45) | YES |  |  |
+| R5 | varchar(45) | YES |  |  |
+| R6 | varchar(45) | YES |  |  |
+| R7 | varchar(45) | YES |  |  |
+| R8 | varchar(45) | YES |  |  |
+| R9 | varchar(45) | YES |  |  |
+| R10 | varchar(45) | YES |  |  |
+| R11 | varchar(45) | YES |  |  |
+| R12 | varchar(45) | NO |  |  |
+| MonthName | varchar(45) | YES |  |  |
+| Date | date | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+| EARYearID | int(11) | YES |  |  |
+| GradeID | int(11) | YES |  |  |
+
+
+### Table: tblstudent_attachment
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| StudentID | int(11) | YES |  |  |
+| Title | varchar(200) | YES |  |  |
+| File | varchar(45) | YES |  |  |
+
+
+### Table: tblstudenttimetable
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| LoginID | int(11) | YES |  |  |
+| EARYearID | int(11) | YES |  |  |
+| GradeID | int(11) | YES |  |  |
+| TimeID | int(11) | YES |  |  |
+| TeacherID | int(11) | YES |  |  |
+| SubjectID | int(11) | YES |  |  |
+| Date | date | YES |  |  |
+| DName | varchar(45) | YES |  |  |
+| RoomID | int(11) | YES |  |  |
+
+
+### Table: tblpaytype
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| GradeID | int(11) | YES |  |  |
+| PayTypeID | int(11) | YES |  |  |
+| Price | double | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+
+
+### Table: tblearstudent
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| EARYearID | int(11) | YES |  |  |
+| GradeID | int(11) | YES |  |  |
+| StudentID | int(11) | YES |  |  |
+| Date | datetime | YES |  |  |
+
+
+### Table: tblacademicyear
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(100) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+
+
+### Table: tblreligion
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(100) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+
+
+### Table: tblvoucheruniform
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| VNO | varchar(45) | YES |  |  |
+| StudentID | int(11) | YES |  |  |
+| GradeID | int(11) | YES |  |  |
+| Total | double | YES |  |  |
+| Disc | double | YES |  |  |
+| Tax | double | YES |  |  |
+| Amount | double | YES |  |  |
+| UserID | int(11) | YES |  |  |
+| Date | date | YES |  |  |
+
+
+### Table: tblaccoumentall
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| LoginID | int(11) | YES |  |  |
+| Description | varchar(500) | YES |  |  |
+| File | varchar(100) | YES |  |  |
+| Date | date | YES |  |  |
+
+
+### Table: tblsubject
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(50) | YES |  |  |
+| GradeID | int(11) | YES |  |  |
+
+
+### Table: tbltodolist
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Title | varchar(500) | YES |  |  |
+| StartEvent | datetime | YES |  |  |
+| EndEvent | datetime | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+| UserID | int(11) | YES |  |  |
+
+
+### Table: tblexamtype
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(100) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+
+
+### Table: tblquestion
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| GradeID | int(11) | YES |  |  |
+| Description | varchar(100) | YES |  |  |
+| PDF | varchar(100) | YES |  |  |
+| Date | date | YES |  |  |
+
+
+### Table: tblgrade
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(100) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+| FeeAmount | double | YES |  |  |
+| OrderID | int(11) | YES |  |  |
+
+
+### Table: tblearyear
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(100) | YES |  |  |
+| Rmk | varchar(500) | YES |  |  |
+| IsActive | int(11) | YES |  |  |
+
+
+### Table: tblnational
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(100) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+
+
+### Table: tblallowanceexpense
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| StudentID | int(11) | YES |  |  |
+| Amount | int(11) | YES |  |  |
+| Rmk | varchar(100) | YES |  |  |
+| Date | date | YES |  |  |
+
+
+### Table: tblpaysalary
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| StaffID | int(11) | YES |  |  |
+| Amt | double | YES |  |  |
+| Date | date | YES |  |  |
+| VNO | varchar(100) | YES |  |  |
+| Rmk | varchar(200) | YES |  |  |
+
+
+### Table: tblselluniform
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| VNO | varchar(45) | YES |  |  |
+| Name | varchar(100) | YES |  |  |
+| ItemID | int(11) | YES |  |  |
+| Price | double | YES |  |  |
+| CategoryID | int(11) | YES |  |  |
+| Size | varchar(45) | YES |  |  |
+| Date | date | YES |  |  |
+| Qty | int(11) | YES |  |  |
+
+
+### Table: tblteachingrecord
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| TeachingCategoryID | int(11) | YES |  |  |
+| TeacherID | int(11) | YES |  |  |
+| Date | date | YES |  |  |
+| TimeID | int(11) | YES |  |  |
+| Remark | varchar(100) | YES |  |  |
+
+
+### Table: tblroom
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(100) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+| GradeID | int(11) | YES |  |  |
+
+
+### Table: tblcms
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| VNO | varchar(100) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+| Amt | double | YES |  |  |
+| PayDescription | varchar(100) | YES |  |  |
+| PayStatus | varchar(100) | YES |  |  |
+| Status | int(11) | YES |  |  |
+| Date | date | YES |  |  |
+
+
+### Table: tblfee
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| EARStudentID | int(11) | YES |  |  |
+| PayTypeID | int(11) | YES |  |  |
+| EARYearID | int(11) | YES |  |  |
+| Amt | double | YES |  |  |
+| Disc | double | YES |  |  |
+| Tax | double | YES |  |  |
+| Total | double | YES |  |  |
+| Date | datetime | YES |  |  |
+| VNO | varchar(100) | YES | UNI |  |
+| Remark | varchar(100) | YES |  |  |
+
+
+### Table: tblparent
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(100) | YES |  |  |
+| UserName | varchar(45) | YES | UNI |  |
+| Password | varchar(45) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+| Status | int(11) | YES |  |  |
+
+
+### Table: tblselluniform_temp
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| VNO | varchar(45) | YES |  |  |
+| Name | varchar(100) | YES |  |  |
+| ItemID | int(11) | YES |  |  |
+| Price | double | YES |  |  |
+| CategoryID | int(11) | YES |  |  |
+| Size | varchar(45) | YES |  |  |
+| Date | date | YES |  |  |
+| Qty | int(11) | YES |  |  |
+| UserID | int(11) | YES |  |  |
+
+
+### Table: tblextrafee
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| EARStudentID | int(11) | YES |  |  |
+| EARYearID | int(11) | YES |  |  |
+| GradeID | int(11) | YES |  |  |
+| Description | varchar(255) | YES |  |  |
+| Amount | decimal(10,2) | YES |  |  |
+| Date | date | YES |  |  |
+| Paymentmethod | varchar(45) | YES |  |  |
+
+
+### Table: tblparent_student
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| StudentID | int(11) | YES |  |  |
+| ParentID | int(11) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+| Date | date | YES |  |  |
+
+
+### Table: tbleargrade
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| EARYearID | int(11) | YES |  |  |
+| GradeID | int(11) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+
+
+### Table: tblpaytypecategory
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(100) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+
+
+### Table: tblexam
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| SubjectID | int(11) | YES |  |  |
+| PayMark | int(11) | YES |  |  |
+| GetMark | int(11) | YES |  |  |
+| Result | varchar(45) | YES |  |  |
+| D | varchar(100) | YES |  |  |
+| Date | date | YES |  |  |
+| ExamVoucherID | int(11) | YES |  |  |
+
+
+### Table: tblteachingcategory
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| SubjectID | int(11) | YES |  |  |
+| GradeID | int(11) | YES |  |  |
+| RoomID | int(11) | YES |  |  |
+| Description | varchar(200) | YES |  |  |
+| Type | varchar(200) | YES |  |  |
+
+
+### Table: tblfeedetail
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| EARStudentID | int(11) | YES |  |  |
+| Description | varchar(200) | YES |  |  |
+| Amount | double | YES |  |  |
+| Paymentmethod | varchar(100) | YES |  |  |
+| Date | date | YES |  |  |
+
+
+### Table: tblexpensecategory
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(100) | YES | UNI |  |
+| LoginID | int(11) | YES |  |  |
+
+
+### Table: tbllearningtitle
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Description | varchar(200) | YES |  |  |
+| Type | varchar(100) | YES |  |  |
+| Date | date | YES |  |  |
+
+
+### Table: tblexpense
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| ExpenseCategoryID | int(11) | YES |  |  |
+| Description | varchar(50) | YES |  |  |
+| Amt | double | YES |  |  |
+| UserID | varchar(50) | YES |  |  |
+| Date | date | YES |  |  |
+
+
+### Table: tblearclass
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| EARYearID | int(11) | YES |  |  |
+| EARGradeID | int(11) | YES |  |  |
+| ClassID | int(11) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+
+
+### Table: tblstaff
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(100) | YES |  |  |
+| StaffID | varchar(100) | YES |  |  |
+| CellPhone | varchar(45) | YES |  |  |
+| Address | varchar(200) | YES |  |  |
+| Email | varchar(100) | YES |  |  |
+| Education | varchar(100) | YES |  |  |
+| EducationLevel | varchar(200) | YES |  |  |
+| Gender | varchar(45) | YES |  |  |
+| Salary | double | YES |  |  |
+| Img | varchar(45) | YES |  |  |
+| StartDate | date | YES |  |  |
+| Status | int(11) | YES |  |  |
+| NRC | varchar(200) | YES |  |  |
+| BOD | date | YES |  |  |
+
+
+### Table: tblstudentprofile
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(100) | YES |  |  |
+| StudentID | varchar(45) | YES |  |  |
+| DOB | date | YES |  |  |
+| Age | int(11) | YES |  |  |
+| FatherName | varchar(100) | YES |  |  |
+| MotherName | varchar(100) | YES |  |  |
+| Img | varchar(100) | YES |  |  |
+| Gender | varchar(45) | YES |  |  |
+| Address | varchar(200) | YES |  |  |
+| Rmk | varchar(500) | YES |  |  |
+| ReligionID | int(11) | YES |  |  |
+| NationalID | int(11) | YES |  |  |
+| CellPhone | varchar(45) | YES |  |  |
+| FatherNRC | varchar(45) | YES |  |  |
+| MotherNRC | varchar(45) | YES |  |  |
+| EnName | varchar(200) | YES |  |  |
+| EmergencyContact | varchar(45) | YES |  |  |
+| GradeID | int(11) | YES |  |  |
+| Race | varchar(200) | YES |  |  |
+
+
+### Table: tblstudent_account
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| UserName | varchar(50) | YES | UNI |  |
+| Password | varchar(50) | YES |  |  |
+| IsActive | int(11) | YES |  |  |
+| StudentID | int(11) | YES |  |  |
+
+
+### Table: tblitemuniform
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(100) | YES |  |  |
+| CategoryID | int(11) | YES |  |  |
+| Size | varchar(100) | YES |  |  |
+| Price | double | YES |  |  |
+| Date | date | YES |  |  |
+| Rmk | varchar(200) | YES |  |  |
+| Img | varchar(100) | YES |  |  |
+
+
+### Table: tblsetting
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| SchoolName | varchar(200) | YES |  |  |
+| SchoolAddress | varchar(200) | YES |  |  |
+| PhoneNo | varchar(100) | YES |  |  |
+| Email | varchar(100) | YES |  |  |
+| Img | varchar(45) | YES |  |  |
+| SiteLogo | varchar(50) | NO |  |  |
+| SiteIcon | varchar(50) | NO |  |  |
+| Status | int(11) | YES |  |  |
+
+
+### Table: tbluser
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| UserName | varchar(100) | YES |  |  |
+| Password | varchar(100) | YES |  |  |
+| Active | int(11) | YES |  |  |
+| Permission | varchar(300) | YES |  |  |
+
+
+### Table: tblstudentactivity
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| LoginID | int(11) | YES |  |  |
+| EARStudentID | int(11) | YES |  |  |
+| Description | varchar(2000) | YES |  |  |
+| Date | date | YES |  |  |
+| File | varchar(100) | YES |  |  |
+
+
+### Table: tblhostel
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(100) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+
+
+### Table: tblcut
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(100) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+
+
+### Table: tblsavefile
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Description | varchar(200) | YES |  |  |
+| File | varchar(200) | YES |  |  |
+| Date | date | YES |  |  |
+
+
+### Table: tblexam_voucher
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| EARStudentID | int(11) | YES |  |  |
+| TotalPayMark | double | YES |  |  |
+| TotalGetMark | double | YES |  |  |
+| Date | date | YES |  |  |
+| ExamTypeName | varchar(100) | YES |  |  |
+
+
+### Table: tblyearstudentfee
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| EARStudentID | int(11) | YES |  |  |
+| EARYearID | int(11) | YES |  |  |
+| GradeID | int(11) | YES |  |  |
+| FeeAmount | double | YES |  |  |
+| FeeAmountMonth | double | YES |  |  |
+| FerryAmount | double | YES |  |  |
+| FoodAmount | double | YES |  |  |
+| OtherAmount | double | YES |  |  |
+| RegisterFee | double | YES |  |  |
+| UniformFee | double | YES |  |  |
+| MaterialFee | double | YES |  |  |
+| TotalAmount | double | YES |  |  |
+| TotalPay | double | YES |  |  |
+| Remain | double | YES |  |  |
+
+
+### Table: tblbcsalary
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| StaffID | int(11) | YES |  |  |
+| BCID | int(11) | YES |  |  |
+| Status | int(11) | YES |  |  |
+| Amt | double | YES |  |  |
+| Date | date | YES |  |  |
+
+
+### Table: tblchat
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| FromUser | int(11) | YES |  |  |
+| ToUser | int(11) | YES |  |  |
+| Message | varchar(300) | YES |  |  |
+| Date | datetime | YES |  |  |
+| View | varchar(45) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+| MessageType | varchar(45) | YES |  |  |
+
+
+### Table: tblallowanceincome
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| StudentID | int(11) | YES |  |  |
+| ParentID | int(11) | YES |  |  |
+| Amount | int(11) | YES |  |  |
+| Date | date | YES |  |  |
+
+
+### Table: tblparentuser
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| StudentID | int(11) | YES |  |  |
+| UserName | varchar(100) | YES |  |  |
+| Password | varchar(6) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+| Status | int(11) | YES |  |  |
+
+
+### Table: tblaccoumentparent
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| LoginID | int(11) | YES |  |  |
+| Description | varchar(500) | YES |  |  |
+| File | varchar(45) | YES |  |  |
+| Date | date | YES |  |  |
+| ParentUserID | int(11) | YES |  |  |
+| StudentID | int(11) | YES |  |  |
+| VNO | varchar(100) | YES |  |  |
+| EARYearID | int(11) | NO |  |  |
+| GradeID | int(11) | NO |  |  |
+
+
+### Table: tblstudentfee
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| MonthName | varchar(45) | YES |  |  |
+| EARStudentID | int(11) | YES |  |  |
+| EARYearID | int(11) | YES |  |  |
+| GradeID | int(11) | YES |  |  |
+| FeeAmount | double | YES |  |  |
+| FoodAmount | double | YES |  |  |
+| FerryAmount | double | YES |  |  |
+| OtherAmount | double | YES |  |  |
+| Total | double | YES |  |  |
+| Cash | double | YES |  |  |
+| Mobile | double | YES |  |  |
+| MobileRmk | varchar(45) | YES |  |  |
+| TotalPay | double | YES |  |  |
+| PayDate | date | YES |  |  |
+| PayName | varchar(45) | YES |  |  |
+| ReceiveName | varchar(45) | YES |  |  |
+| Remain | double | YES |  |  |
+| VNO | varchar(45) | YES |  |  |
+| Disc | int(11) | YES |  |  |
+| RegisterFee | double | YES |  |  |
+| UniformFee | double | YES |  |  |
+| MaterialFee | double | YES |  |  |
+| LaundryFee | double | YES |  |  |
+| GuideFee | double | YES |  |  |
+| AccomodationFee | double | YES |  |  |
+| Remark | varchar(45) | YES |  |  |
+| LoginID | int(11) | YES |  |  |
+
+
+### Table: tbllog
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| UserAID | int(11) | YES |  |  |
+| Date | datetime | YES |  |  |
+| Description | mediumtext | YES |  |  |
+
+
+### Table: tblcategoryuniform
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| Name | varchar(100) | YES | UNI |  |
+
+
+### Table: tblassignvoucher
+| Column | Type | Null | Key | Extra |
+| :--- | :--- | :--- | :--- | :--- |
+| AID | int(11) | NO | PRI | auto_increment |
+| VNO | varchar(45) | YES |  |  |
+| UserID | int(11) | YES |  |  |
+| Date | date | YES |  |  |
+| EARYearID | int(11) | YES |  |  |
+| GradeID | int(11) | YES |  |  |
+| Status | varchar(45) | YES |  |  |
+
+

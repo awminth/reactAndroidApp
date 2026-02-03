@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/backend/index.vercel.js" },
+    { "source": "(.*)", "destination": "/frontend/index.html" }
+  ],
+  "functions": {
+    "backend/index.vercel.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  }
+}
