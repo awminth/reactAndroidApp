@@ -7,7 +7,23 @@ const { getOrSetCache } = require('../redisClient');
 const app = express();
 const PORT = process.env.PORT || 4002;
 
-app.use(cors());
+app.use(cors({
+    origin: '*', // Allow all origins for now to fix the issue
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+    credentials: true
+}));
+
+// Manual CORS headers for Vercel Serverless edge cases
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
+    }
+    next();
+});
 app.use(express.json());
 
 // Mount Year Service
