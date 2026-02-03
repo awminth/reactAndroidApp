@@ -4,7 +4,7 @@
 
 const CONFIG = {
   // Base URL for the Backend API
-  API_BASE_URL: import.meta.env.PROD ? '' : 'http://localhost:4002',
+  API_BASE_URL: import.meta.env.VITE_API_URL || 'http://localhost:4002',
   
   // Timeout for API requests (ms)
   TIMEOUT: 10000,
