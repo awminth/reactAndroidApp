@@ -231,6 +231,19 @@ app.post('/api/update-fcm', async (req, res) => {
     }
 });
 
+// Notification Routes (Restored for Frontend Compatibility)
+app.post('/api/subscribe', (req, res) => {
+    const { token } = req.body;
+    console.log('New FCM Token stored:', token);
+    res.status(201).json({ message: 'Token received' });
+});
+  
+app.post('/api/send-notification', (req, res) => {
+    const { token } = req.body;
+    console.log(`[SIMULATION] Target Token: ${token}`);
+    res.json({ message: 'Log logged. Use Firebase Console to test actual delivery.' });
+});
+
 // Basic health check
 app.get('/', (req, res) => {
     res.send('Backend is running');
