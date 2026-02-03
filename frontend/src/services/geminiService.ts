@@ -1,8 +1,12 @@
 import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 
 // Initialize the Gemini Client
-// The API key must be obtained exclusively from the environment variable process.env.API_KEY.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// The API key must be obtained from VITE_GEMINI_API_KEY
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+if (!apiKey) {
+  console.error("VITE_GEMINI_API_KEY is not set!");
+}
+const ai = new GoogleGenAI({ apiKey: apiKey || "dummy-key-to-prevent-crash" });
 
 export const sendMessageToGemini = async (
   prompt: string,
